@@ -7,7 +7,7 @@
 
 int main() {
     char e1, e2, cod1[4], cod2[4], cidade1[10], cidade2[10];
-    int pop1, pop2, pt1, pt2;
+    int pop1, pop2, pt1, pt2, atributo;
     float a1, a2, pib1, pib2, dp1, dp2, ppc1, ppc2, sp1, sp2;
     
     //Inserindo dados da Carta 1:
@@ -87,15 +87,115 @@ int main() {
   //Comparacoes
   
   printf("\n-- Comparacao de Cartas --\n");
-  printf("Carta 1: %s: %d\n", cidade1, pop1);
-  printf("Carta 2: %s: %d\n", cidade2, pop2);
+  printf("Escolha qual atributo deseja comparar\n");
+  printf("1. Letra do Estado\n");
+  printf("2. Populacao\n");
+  printf("3. Area\n");
+  printf("4. PIB\n");
+  printf("5. Numero de Pontos Turisticos\n");
+  printf("6. Densidade Demografica\n");
+  scanf(" %d", &atributo);
   
-  if(pop1 > pop2) {
-          printf("Resultado: Carta 1(%s) venceu!\n", cidade1);
-          }
-  else {
-       printf("Resultado: Carta 2(%s) venceu!\n", cidade2);
-       }
+  switch (atributo)
+  {
+  case 1:
+    printf("\nUsado apenas para exibir a informacao, sem comparacao\n");
+    break;
+  
+  case 2:
+    if(pop1 > pop2) {
+      printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+      printf("Carta 1: %d, Carta 2: %d\n", pop1, pop2);
+      printf("Atributo: %d\n", atributo);
+      printf("Carta 1 venceu\n");
+    }
+     else if (pop1 < pop2) {
+       printf("Atributo: %d\n", atributo);
+       printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+       printf("Carta 2 venceu\n");
+       printf("Carta 1: %d, Carta 2: %d\n", pop1, pop2);
+      } 
+      else {
+        printf("Empatou\n");
+      }
+      break;
+                              
+  case 3:
+    if(a1 > a2) {
+      printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+      printf("Atributo: %d\n", atributo);
+      printf("Carta 1: %f, Carta 2: %f\n", a1, a2);
+      printf("Carta 1 venceu\n");
+    } 
+    else if (a1 < a2) {
+      printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+      printf("Atributo: %d\n", atributo);
+      printf("Carta 1: %.2f, Carta 2: %.2f\n", a1, a2);
+      printf("Carta 2 venceu\n");
+    } 
+      else {
+        printf("Empatou\n");
+      }
+    break;
+
+  case 4:
+    if(pib1 > pib2) {
+     printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+     printf("Atributo: %d\n", atributo);
+     printf("Carta 1: %.2f, Carta 2: %.2f\n", pib1, pib2);
+     printf("Carta 1 venceu\n");
+    }
+    else if (pib1 < pib2) {
+     printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+     printf("Atributo: %d\n", atributo);
+     printf("Carta 1: %.2f, Carta 2: %.2f\n", pib1, pib2);
+     printf("Carta 2 venceu\n");
+    } 
+    else {
+     printf("Empatou\n");
+    }
+  break;
+  case 5:
+   if(pt1 > pt2) {
+     printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+     printf("Atributo: %d\n", atributo);
+     printf("Carta 1: %d, Carta 2: %d\n", pt1, pt2);
+     printf("Carta 1 venceu\n");
+     }
+    else if (pt1 < pt2) {
+     printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+     printf("Atributo: %d\n", atributo);
+     printf("Carta 1: %d, Carta 2: %d\n", pt1, pt2);
+     printf("Carta 2 venceu\n");
+     }
+    else {
+     printf("Empatou\n");
+    }
+  break;
+  case 6:
+    if(dp1 < dp2) {
+     printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+     printf("Atributo: %d\n", atributo);
+     printf("Carta 1: %.2f, Carta 2: %.2f\n", dp1, dp2);
+     printf("Carta 1 venceu\n");
+    }
+    else if (dp1 > dp2) {
+      printf("Carta 1: %c, Carta 2: %c\n", e1, e2);
+      printf("Atributo: %d\n", atributo);
+      printf("Carta 1: %.2f, Carta 2: %.2f\n", dp1, dp2);
+      printf("Carta 2 venceu\n");
+    }
+    else {
+      printf("Empatou\n");
+    }
+  break;
+  
+  default:
+    printf("Opacao invalida\n");
+    break;
+  }
+  
+  
   printf("\nPressione Enter para sair...");
   getchar();  // consome o '\n' que sobrou
   getchar();  // aguarda o Enter do usuario
